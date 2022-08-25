@@ -5,6 +5,6 @@ OSquery allows you to query your devices like a database. It uses SQL commands t
 Below are some adhoc queries I've found to be useful:
 
 ### Rogue svchost
-```
+```SQL
 SELECT * FROM processes WHERE name like 'svchost.exe' AND NOT path = "c:\windows\system32\";
 ```
