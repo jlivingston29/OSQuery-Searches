@@ -8,3 +8,19 @@ Below are some adhoc queries I've found to be useful:
 ```SQL
 SELECT * FROM processes WHERE name like 'svchost.exe' AND NOT path = "c:\windows\system32\";
 ```
+
+### Listening Ports
+```SQL
+SELECT
+op.pid,
+op.local_address,
+op.remote_address,
+op.local_port,
+op.remote_port,
+op.state,'LISTEN',
+p.path,
+p.name,
+p.cmdline
+FROM process_open_sockets AS op
+ JOIN processes AS p USING(pid);
+```
