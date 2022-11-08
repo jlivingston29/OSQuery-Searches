@@ -24,3 +24,7 @@ p.cmdline
 FROM process_open_sockets AS op
  JOIN processes AS p USING(pid);
 ```
+### Check CurrentUser Run Registry key
+```SQL
+SELECT key, path, name, type, data FROM registry WHERE path like 'HKEY_USERS\%\Software\Microsoft\Windows\CurrentVersion\Run\%';
+```
